@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ejemplo API</string>
+    <string name="buscar">Buscar</string>
+    <string name="crear">Crear</string>
+    <string name="nombre">Nombre</string>
+    <string name="fecha">Fecha</string>
+    <string name="button">Button</string>
+    <string name="email">Email</string>
+    <string name="hora">Hora</string>
+    <string name="contrase_a">Contraseña</string>
+</resources>
