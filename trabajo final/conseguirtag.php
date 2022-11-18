@@ -7,11 +7,13 @@
   <body>
     <?php include 'header.php'; ?>
     <form method="POST">
-        Nombre <input name="nombre" type="text"><br>
-        Email <input name="email" type="email"><br>
-        Contraseña <input name="contrasena" type="password"><br>
+    <?php
+        if($_SERVER['REQUEST_METHOD'] =="POST"){ ?>
+          <p><?php echo uniqid("#"); ?></p>
+
+      <?php } ?>
         <input class="boton" type="submit" value="Generar Tag" name="register">
     </form>
-   
+     
   </body>
 </html>
