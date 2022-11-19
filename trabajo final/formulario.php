@@ -1,7 +1,7 @@
 <?php
 
 include 'bd.php';
-if (isset($_COOKIE['session'])) {
+if (isset($_COOKIE['sesion'])) {
   header('Location: header.php');
 }
 

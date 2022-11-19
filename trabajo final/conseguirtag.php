@@ -2,11 +2,10 @@
 
 include 'bd.php';
 
- $tag = uniqid("#");# $_POST['tag'];
+ $tag = uniqid("#");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $email = str_replace("%","@",$_COOKIE['session']);
+  $email = str_replace("%","@",$_COOKIE['sesion']);
   $consulta = "INSERT INTO usuario_tag (id_usuarios,tag) VALUES ((SELECT id_usuarios from alta_usuarios WHERE email = '$email'),'$tag')";
-  /*"WHERE '".$_COOKIE['session']."' = email";*/
   $result = $conexion->query($consulta);
 }
 ?>

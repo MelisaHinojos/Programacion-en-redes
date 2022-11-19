@@ -1,7 +1,7 @@
 <?php
 include 'bd.php';
 
-if (isset($_COOKIE['session'])) {
+if (isset($_COOKIE['sesion'])) {
   header('Location: header.php');
 }
 
@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       if ($contrasena == $row['contrasena']) {
-        setcookie('session', $row['email'], time() + (86400 * 30) * 360, "/");
+        setcookie('sesion', $row['email'], time() + (86400 * 30) * 360, "/");
         header("location: header.php");
       } else {
         $msg = '<body> <div class="alert alert-danger">
-        <strong class="text-red-900"> La contraseña ingresada es incorrecta.</strong>
+        <strong class="text-red-900"> La contraseña es incorrecta.</strong>
       </div> </body>';
       }
     }
