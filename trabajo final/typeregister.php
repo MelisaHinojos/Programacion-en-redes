@@ -10,9 +10,15 @@
   <body>
   <?php include 'header.php'; ?>
     <form>
+<<<<<<< HEAD
     <a href="formuser.php" class="btn btn-dark col-2" role="button" name="user">Usuario</a>
     <br><br>
     <a href="formadmin.php" class="btn btn-dark col-2" role="button" name="admin">Administrador</a>
+=======
+    <a class="boton" href="formuser.php" name="user">Usuario</a>
+    <br>
+    <a class="boton" href="admin.php" role="button"  href="" name="admin">Administrador</a>
+>>>>>>> 3dfef037d4f44dc0609df3cf6dc1b5b1219fae07
 </form>
   </body>
 </html>
