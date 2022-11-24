@@ -12,7 +12,7 @@
     <form>
     <a class="boton" href="formuser.php" name="user">Usuario</a>
     <br>
-    <a class="boton" href="#" role="button"  href="" name="admin">Administrador</a>
+    <a class="boton" href="admin.php" role="button"  href="" name="admin">Administrador</a>
 </form>
   </body>
 </html>
