@@ -1,6 +1,8 @@
 <?php
 include 'bd.php';
 
+$msg = '';
+
 if (isset($_COOKIE['sesion'])) {
     header('Location: header.php');
   }
@@ -8,14 +10,22 @@ if (isset($_COOKIE['sesion'])) {
   if (isset($_POST['nombre'])) $nombre = $_POST['nombre'];
   if (isset($_POST['email'])) $email = $_POST['email'];
   if (isset($_POST['contrasena'])) $contrasena = $_POST['contrasena'];
-  if (isset($_POST['create_time'])) $create_time = $_POST ['create_time'];
+  if (isset($_POST['codadmin'])) $codadmin = $_POST ['codadmin'];
   
-  $create_time = date('y/m/d');
   
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $consulta = "INSERT INTO alta_usuarios (nombre, email, contrasena,create_time ) VALUES ('$nombre','$email','$contrasena','$create_time')";
-  $result = $conexion->query($consulta);
+    if($codadmin == "3323") {
+      $consulta = "INSERT INTO alta_usuarios (nombre, email, contrasena ) VALUES ('ADMIN','$email','$contrasena')";
+      $result = $conexion->query($consulta);
+      setcookie('sesion', $email, time() + (86400 * 30) * 360, "/");
+      header("location: header.php");
+    }else{
+      $msg = "Codigo incorrecto de administrador";
+    }
+
   }
+
+
   
 ?>
 <!DOCTYPE html>
@@ -28,12 +38,15 @@ if (isset($_COOKIE['sesion'])) {
   </head>
   <body>
     <?php include 'header.php'; ?>
-    <form method="POST">
+    <form action="formadmin.php" method="POST">
         Nombre <input name="nombre" type="text"><br>
         Email <input name="email" type="email"><br>
         Contraseña <input name="contrasena" type="password"><br>
         Codigo Administrador<input name="codadmin" type="text"><br>
-        <a class="btn btn-dark col-2" role="button" name="register">Registrar</a>
+        <input type="submit" class="btn btn-dark col-2" role="button" name="register" value="Registrar">
+        <?php if($msg != ''){ ?>
+          <p><?php echo $msg; ?></p>
+          <?php } ?>
     </form>
    
   </body>

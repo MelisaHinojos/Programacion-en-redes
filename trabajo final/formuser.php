@@ -27,11 +27,11 @@ $result = $conexion->query($consulta);
   </head>
   <body>
     <?php include 'header.php'; ?>
-    <form method="POST">
-        Nombre <input name="nombre" type="text"><br>
-        Email <input name="email" type="email"><br>
-        Contraseña <input name="contrasena" type="password"><br>
-        <a class="btn btn-dark col-2" role="button" name="register">Registrar</a>
+    <form action="formuser.php" method="POST">
+        Nombre <input name="nombre" type="text" required><br>
+        Email <input name="email" type="email" required><br>
+        Contraseña <input name="contrasena" type="password" required><br>
+        <input type="submit" class="btn btn-dark col-2" role="button" name="register" value="Registrar">
     </form>
    
   </body>

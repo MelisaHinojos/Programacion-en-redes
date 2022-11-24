@@ -7,6 +7,7 @@
 
 </head>
 <body>
+<?php include 'header.php'; ?>
 <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4">
@@ -18,15 +19,16 @@
             <?php
             include 'bd.php';
             $email = $_COOKIE["sesion"];
-            $consulta= "SELECT nombre,contrasena,create_time FROM alta_usuarios WHERE email='$email'";
+            $consulta= "SELECT * FROM alta_usuarios WHERE email='$email'";
             $result = $conexion->query($consulta);
+            $id_usuario = '';
 
-            while($datos=$result->fetch_assoc){
+            while($datos=$result->fetch_array()){
 
               $nombre=$datos['nombre'];
-              $email=$datos['email'];
               $contrasena=$datos['contrasena'];
               $create_time=$datos['create_time'];
+              $id_usuario = $datos['id_usuario'];
               
 
             }?>
@@ -37,6 +39,20 @@
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-outline-primary ms-1"></button>
             </div>
+
+            <?php
+            $consulta2= "SELECT * FROM alta_usuarios WHERE email='$email'";
+            $result2 = $conexion->query($consulta);
+
+            while($datos=$result2->fetch_array()){
+
+              $nombre=$datos['nombre'];
+              $contrasena=$datos['contrasena'];
+              $create_time=$datos['create_time'];
+              
+
+            }?>
+
           </div>
         </div>
 <body>
