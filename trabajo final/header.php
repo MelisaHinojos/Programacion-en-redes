@@ -21,11 +21,12 @@ if (isset($_COOKIE['sesion'])) {
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="CSS/style.css">
   </head>
   <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PROYECTO</a>
+      <a class="navbar-brand" href="header.php">PROYECTO</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,10 +47,10 @@ if (isset($_COOKIE['sesion'])) {
     <?php } ?>
           </div>
         <?php } else { ?>
-            <a href="typeregister.php" class="nav-link active" aria-current="page" href="#">Registrar</a>
+            <a href="typeregister.php" class="nav-link active" aria-current="page" >Registrar</a>
           </li>
           <li class="nav-item">
-            <a href="login.php"class="nav-link active" href="#">Login</a>
+            <a href="login.php"class="nav-link active" >Login</a>
           </li>
           <?php } ?>
       </div>

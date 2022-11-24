@@ -10,9 +10,9 @@
   <body>
   <?php include 'header.php'; ?>
     <form>
-    <a class="boton" href="formuser.php" name="user">Usuario</a>
-    <br>
-    <a class="boton" href="#" role="button"  href="" name="admin">Administrador</a>
+    <a href="formuser.php" class="btn btn-dark col-2" role="button" name="user">Usuario</a>
+    <br><br>
+    <a href="formadmin.php" class="btn btn-dark col-2" role="button" name="admin">Administrador</a>
 </form>
   </body>
 </html>

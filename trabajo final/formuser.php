@@ -31,7 +31,7 @@ $result = $conexion->query($consulta);
         Nombre <input name="nombre" type="text"><br>
         Email <input name="email" type="email"><br>
         Contraseña <input name="contrasena" type="password"><br>
-        <input class="boton" type="submit" value="Enviar" name="register">
+        <a class="btn btn-dark col-2" role="button" name="register">Registrar</a>
     </form>
    
   </body>

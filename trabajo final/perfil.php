@@ -1,16 +1,4 @@
-<?php
-include 'bd.php';
 
-$email = str_replace("%","@",$_COOKIE['sesion']); 
-$result = $conexion->query($consulta);
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
-    $nombre = $row['nombre'];
-  }
-  $result = $conexion->query($consulta);
-
-}
-?>
 
 <html>
 <head>
@@ -26,14 +14,26 @@ if ($result->num_rows > 0) {
             <img src="#" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3">John Smith</h5>
+
             <?php
-            $consulta = "INSERT INTO usuario_tag (id_usuarios,tag) VALUES ((SELECT id_usuarios from alta_usuarios WHERE email = '$email'),'$tag')";
+            include 'bd.php';
+            $email = $_COOKIE["sesion"];
+            $consulta= "SELECT nombre,contrasena,create_time FROM alta_usuarios WHERE email='$email'";
             $result = $conexion->query($consulta);
-            ?>
+
+            while($datos=$result->fetch_assoc){
+
+              $nombre=$datos['nombre'];
+              $email=$datos['email'];
+              $contrasena=$datos['contrasena'];
+              $create_time=$datos['create_time'];
+              
+
+            }?>
             <p name="nombre" class="text-muted mb-1"><?php echo $nombre; ?></p>
             <p name="email" class="text-muted mb-4"><?php echo $email; ?></p>
-            <p name="tag" class="text-muted mb-4"><?php echo $tag; ?></p>
-   
+            <p name="contrasena" class="text-muted mb-4"><?php echo $contrasena; ?></p>
+            <p name="create_time" class="text-muted mb-4"><?php echo $create_time; ?></p>
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-outline-primary ms-1"></button>
             </div>
