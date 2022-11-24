@@ -2,8 +2,8 @@
 
 include 'bd.php';
 
-if (isset($_COOKIE['session'])) {
-  $email = $_COOKIE["session"];
+if (isset($_COOKIE['sesion'])) {
+  $email = $_COOKIE["sesion"];
   $consulta= "SELECT nombre from alta_usuarios where email = '$email'";
   $result = $conexion->query($consulta);
 
@@ -33,19 +33,20 @@ if (isset($_COOKIE['session'])) {
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-          <?php if (isset($_COOKIE['session'])) { ?>
+          <?php if (isset($_COOKIE['sesion'])) { ?>
           <div>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" ><?php echo $nombre ?></a>
-          <?php if (isset($_COOKIE['session'])) { ?>
+          <?php if (isset($_COOKIE['sesion'])) { ?>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
             <li><a class="dropdown-item" href="conseguirtag.php">Conseguir un Tag</a></li>
             <li><a class="dropdown-item" href="logout.php">Cerrar Sesion</a></li>
           </ul>
     <?php } ?>
           </div>
         <?php } else { ?>
-            <a href="formulario.php" class="nav-link active" aria-current="page" href="#">Registrar</a>
+            <a href="typeregister.php" class="nav-link active" aria-current="page" href="#">Registrar</a>
           </li>
           <li class="nav-item">
             <a href="login.php"class="nav-link active" href="#">Login</a>
