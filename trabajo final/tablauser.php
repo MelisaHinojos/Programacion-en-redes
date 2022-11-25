@@ -24,6 +24,36 @@ if (isset($_COOKIE['sesion'])) {
   </head>
   <body>
   <?php include 'header.php'; ?>
-  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Tag</th>
+    </tr>
+  </thead>
+  <?php
+        if($nombre == "ADMIN"){
+          $consulta3 = "SELECT * FROM alta_usuarios";
+          $result3 = $conexion->query($consulta3);
+
+          while($datos=$result3->fetch_array()){ 
+            $id = $datos['id_usuarios'];
+            $consulta4 = "SELECT * FROM usuario_tag where id_usuarios = '$id'";
+            $result4 = $conexion->query($consulta4);
+            while($datos2=$result4->fetch_array()) $tag = $datos2['tag'] ;
+
+            ?>
+          
+            <tbody>
+                <tr>
+                <td><?php echo $datos['nombre']; ?></th>
+                <td><?php echo $datos['email']; ?></td>
+                <td><?php echo $tag; ?></td>
+                </tr>
+          
+         
+            
+        <?php } } ?>
   </body>
 </html>

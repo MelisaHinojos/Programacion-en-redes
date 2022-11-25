@@ -23,7 +23,8 @@ $result = $conexion->query($consulta);
 <html>
   <head>
     <title>Formulario</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
     <?php include 'header.php'; ?>
@@ -31,7 +32,7 @@ $result = $conexion->query($consulta);
         Nombre <input name="nombre" type="text" required><br>
         Email <input name="email" type="email" required><br>
         Contraseña <input name="contrasena" type="password" required><br>
-        <input type="submit" class="btn btn-dark col-2" role="button" name="register" value="Registrar">
+        <input type="submit" class="boton" name="register" value="Registrar">
     </form>
    
   </body>

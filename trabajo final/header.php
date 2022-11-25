@@ -53,6 +53,11 @@ if (isset($_COOKIE['sesion'])) {
             <a href="login.php"class="nav-link active" >Login</a>
           </li>
           <?php } ?>
+          <?php if($nombre == "ADMIN"){ ?>
+            <li class="nav-link active">
+            <a href="tablauser.php" class="nav-link active" style="color:white ;" aria-current="page" >Tabla usuarios</a>
+            </li>
+          <?php } ?>
       </div>
     
     </div>

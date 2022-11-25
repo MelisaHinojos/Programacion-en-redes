@@ -23,15 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setcookie('sesion', $row['email'], time() + (86400 * 30) * 360, "/");
         header("location: header.php");
       } else {
-        $msg = '<body> <div class="alert alert-danger">
-        <strong class="text-red-900"> La contraseña es incorrecta.</strong>
-      </div> </body>';
+        $msg = '<div class="alert alert-danger">
+                <a class="alert-link"> La contraseña es incorrecta.</a>
+                </div> ';
       }
     }
   } else {
-    $msg = '<body> <div class="alert alert-danger">
-    <strong  class="text-red-900">El usuario no existe.</strong> 
-  </div> </body>';
+    $msg = '<div class="alert alert-danger">
+            <a class="alert-link">El usuario no existe.</a> 
+            </div>';
   }
 }
 
@@ -49,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         Email <input name="email" type="email"><br>
         Contraseña <input name="contrasena" type="password"><br>
         <input class="boton" type="submit" value="Enviar" name="register">
+        <br>
+        <?php if (isset($msg)) echo $msg ?>
     </form>
-    <?php if (isset($msg)) echo $msg ?>
+    
   </body>
 </html>
