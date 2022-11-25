@@ -2,17 +2,7 @@
 
 include 'bd.php';
 
-if (isset($_COOKIE['sesion'])) {
-  $email = $_COOKIE["sesion"];
-  $consulta= "SELECT nombre from alta_usuarios where email = '$email'";
-  $result = $conexion->query($consulta);
 
-  if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-      $nombre = $row['nombre'];
-    }
-  }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +23,7 @@ if (isset($_COOKIE['sesion'])) {
     </tr>
   </thead>
   <?php
-        if($nombre == "ADMIN"){
+        
           $consulta3 = "SELECT * FROM alta_usuarios";
           $result3 = $conexion->query($consulta3);
 
@@ -54,6 +44,6 @@ if (isset($_COOKIE['sesion'])) {
           
          
             
-        <?php } } ?>
+        <?php }  ?>
   </body>
 </html>

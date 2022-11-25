@@ -10,17 +10,8 @@
 <body>
 <?php  include 'bd.php';
 include 'header.php';
-if (isset($_COOKIE['sesion'])) {
-  $email = $_COOKIE["sesion"];
-  $consulta= "SELECT nombre from alta_usuarios where email = '$email'";
-  $result = $conexion->query($consulta);
 
-  if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-      $nombre = $row['nombre'];
-    }
-  }
-} ?>
+?>
 <br>
 <div class="row text-center mx-auto ">
       <div class="col-lg-4 mx-auto p-3 ">
@@ -49,18 +40,7 @@ if (isset($_COOKIE['sesion'])) {
               <a href="header.php" role="button" class="btn btn-dark col-2 mb-2">Inicio</a>
             </div>
 
-            <?php
-            $consulta2= "SELECT * FROM alta_usuarios WHERE email='$email'";
-            $result2 = $conexion->query($consulta);
-
-            while($datos=$result2->fetch_array()){
-
-              $nombre=$datos['nombre'];
-              $contrasena=$datos['contrasena'];
-              $create_time=$datos['create_time'];
-              
-
-            }?>
+           
 
           </div>
         </div>
