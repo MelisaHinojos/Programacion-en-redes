@@ -26,7 +26,7 @@ if (isset($_COOKIE['sesion'])) {
   <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">PROYECTO</a>
+      <a class="navbar-brand" href="header.php">PROYECTO</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,6 +44,11 @@ if (isset($_COOKIE['sesion'])) {
             <li><a class="dropdown-item" href="conseguirtag.php">Conseguir un Tag</a></li>
             <li><a class="dropdown-item" href="logout.php">Cerrar Sesion</a></li>
           </ul>
+          <?php if($nombre == "ADMIN"){ ?>
+            <li class="nav-link active">
+            <a href="tablauser.php" class="nav-link active" style="color:white ;" aria-current="page" >Tabla usuarios</a>
+            </li>
+          <?php } ?>
     <?php } ?>
           </div>
         <?php } else { ?>
@@ -53,11 +58,7 @@ if (isset($_COOKIE['sesion'])) {
             <a href="login.php"class="nav-link active" >Login</a>
           </li>
           <?php } ?>
-          <?php if($nombre == "ADMIN"){ ?>
-            <li class="nav-link active">
-            <a href="tablauser.php" class="nav-link active" style="color:white ;" aria-current="page" >Tabla usuarios</a>
-            </li>
-          <?php } ?>
+          
       </div>
     
     </div>

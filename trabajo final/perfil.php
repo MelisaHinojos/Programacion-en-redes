@@ -8,14 +8,26 @@
 
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php  include 'bd.php';
+include 'header.php';
+if (isset($_COOKIE['sesion'])) {
+  $email = $_COOKIE["sesion"];
+  $consulta= "SELECT nombre from alta_usuarios where email = '$email'";
+  $result = $conexion->query($consulta);
+
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      $nombre = $row['nombre'];
+    }
+  }
+} ?>
 <br>
 <div class="row text-center mx-auto ">
       <div class="col-lg-4 mx-auto p-3 ">
         <div class="card mb-4  ">
           <div class="card-body text-center">
             <?php
-            include 'bd.php';
+           
             $email = $_COOKIE["sesion"];
             $consulta= "SELECT * FROM alta_usuarios WHERE email='$email'";
             $result = $conexion->query($consulta);
